@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-. init
+. init.sh
 
 # Does app ${FN_APP} exist?
 # TODO: make sure appname is just ${FN_APP} and not more

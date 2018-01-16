@@ -1,4 +1,4 @@
 #! /usr/bin/env bash
-. init
+. init.sh
 
 docker push ${DOCKER_USER}/${name}:${version}

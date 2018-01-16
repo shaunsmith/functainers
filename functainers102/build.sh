@@ -1,4 +1,4 @@
 #! /usr/bin/env bash
-. init
+. init.sh
 
 docker build . -t ${DOCKER_USER}/${name}:${version}
