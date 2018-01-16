@@ -1,0 +1,17 @@
+{
+  "call_id": "123",
+  "content_type": "application/json",
+  "body": "{\"name\":\"Dick\"}",
+  "protocol": {
+    "request_url": "http://localhost:8080/r/myapp/myfunc"
+  }
+}
+
+{
+  "call_id": "456",
+  "content_type": "application/json",
+  "body": "{\"name\":\"Jane\"}",
+  "protocol": {
+    "request_url": "http://localhost:8080/r/myapp/myfunc"
+  }
+}
