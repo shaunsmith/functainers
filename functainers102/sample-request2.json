@@ -1,9 +1,7 @@
 {
   "call_id": "456",
-  "content_type": "application/json",
-  "body": {
-    "name": "Dick"
-  },
+  "content_type": "application/text",
+  "body": "Dick",
   "protocol": {
     "request_url": "http://localhost:8080/r/myapp/myfunc"
   }
@@ -11,10 +9,8 @@
 
 {
   "call_id": "789",
-  "content_type": "application/json",
-  "body": {
-    "name": "Jane"
-  },
+  "content_type": "application/text",
+  "body":"Jane",
   "protocol": {
     "request_url": "http://localhost:8080/r/myapp/myfunc"
   }

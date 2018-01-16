@@ -1,9 +1,7 @@
 {
   "call_id": "123",
-  "content_type": "application/json",
-  "body": {
-    "name": "Tom"
-  },
+  "content_type": "application/text",
+  "body": "Tom",
   "protocol": {
     "request_url": "http://localhost:8080/r/myapp/myfunc"
   }

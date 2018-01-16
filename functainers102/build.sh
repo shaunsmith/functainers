@@ -1,11 +1,4 @@
 #! /usr/bin/env bash
-export DOCKER_USER=${1}
+. init
 
-. config.properties
-
-if [ -z "$DOCKER_USER" ]; then
-  echo "usage: ${0} <docker userid> (or define user in config.properties)"
-  exit -1
-fi
-
-docker build . -t ${DOCKER_USER}/${FUNC_NAME}:${FUNC_VERSION}
+docker build . -t ${DOCKER_USER}/${name}:${version}

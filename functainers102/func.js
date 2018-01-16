@@ -2,28 +2,31 @@
 // invocation:
 //
 // {
-//   'call_id': '123',
-//   'content_type': 'application/json',
-//   'body': '{"name" : "Tom"}',
-//   'protocol': {
-//     'request_url': 'http://localhost:8080/r/myapp/myfunc'
+//   "call_id": "123",
+//   "content_type": "application/text",
+//   "body": "Tom",
+//   "protocol": {
+//     "request_url": "http://localhost:8080/r/myapp/myfunc"
 //   }
 // }
 // 
 // Output, if all goes well, should look like:
 //
 // {
-//   'body': '{"greeting": "Hello Tom"}',
-//   'content_type': 'application/json',
-//   'protocol': {
-//     'status_code': 200
+//    "body": "Hello Tom",
+//    "content_type": "application/text",
+//    "protocol": {
+//      "status_code": 200
 //     }
 // }
 
 
-
 var JSONStream = require('JSONStream')
-  , es = require('event-stream')
+  , es = require('event-stream');
+
+function handle(body) {
+  return 'Hello ' + body;
+}
 
 // Read JSON from standard input looking for the body property
 // of the incoming request objects, construct a response, and 
@@ -34,15 +37,14 @@ process.stdin
     JSONStream.parse(['body']))
   .pipe(
     es.mapSync(function(body){
-      // body should be an object with a single 'name' property
-      // like: {"name": "Tom"}
-      var message = 'Hello ' + body.name;
-      return JSON.stringify({
-        'body': {greeting: message},
-        'content_type': 'application/json',
+      var response = handle(body);
+      return {
+        'body': response,
+        'content_type': 'application/text',
         'protocol': {
           'status_code': 200
           }
-        });
+        };
     }))
+  .pipe(JSONStream.stringify(false))
   .pipe(process.stdout);
